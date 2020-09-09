@@ -26,14 +26,13 @@ def ds_ht(file):  # 第二题
     driver.quit()
 
 
-def ds_gw(file, shangpin):  # 第三题
+def ds_gw(file):  # 第三题
     driver = webdriver.Firefox()
     with open(file, 'r') as f:
         xx = f.read().splitlines()
-    xx = xx
     driver.get(xx[-1])
     a = driver.find_element_by_name('kw')
-    a.send_keys(shangpin)
+    a.send_keys('苹果')
     b = driver.find_element_by_xpath('/html/body/div[2]/div/div[1]/div[2]/form/div/button')
     b.click()
     c = driver.find_element_by_xpath('/html/body/div[4]/div[1]/div[1]/div[2]/div[2]/ul/li[4]/div/a/img')
@@ -43,7 +42,6 @@ def ds_gw(file, shangpin):  # 第三题
     sleep(5)
     driver.quit()
 
-
 ds_ht('ds.txt')
 sleep(5)
-ds_gw('ds.txt', '苹果')
+ds_gw('ds.txt')
